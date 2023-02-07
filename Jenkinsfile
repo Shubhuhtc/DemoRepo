@@ -1,15 +1,15 @@
-pipeline{
+pipeline {
     agent any
-
     tools {
-         maven 'Maven2'
-         jdk 'jdk'
+        maven "Maven2"
+        jdk "jdk"
     }
-
-        stage('build'){
-            steps{
-               sh 'mvn install -Dv=${BUILD_NUMBER}'
+    stages {
+        stage('Build') {
+            steps {
+                
+                sh 'mvn install'
+                
             }
         }
-    }
-
+     }
