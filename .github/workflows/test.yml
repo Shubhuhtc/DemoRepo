@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        uses: stCarolas/setup-maven@v.4.53
+      - uses: stCarolas/setup-maven@v.4.53
         with:
           maven-version: # optional, default is 3.8.2
       - run: mvn clean 
