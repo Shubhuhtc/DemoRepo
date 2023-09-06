@@ -25,22 +25,15 @@ steps:
 - task: CmdLine@2
   inputs:
     script: tree $(Agent.BuildDirectory)
-- task: JFrogGenericArtifacts@1
+- task: JFrogMaven@1
   inputs:
-    command: 'Upload'
-    connection: 'Artifactory'
-    specSource: 'taskConfiguration'
-    fileSpec: |
-      {
-        "files": [
-          {
-            "pattern": "**/target/hello-world-maven.war",
-            "target": "demo-class-libs-snapshot"
-          }
-        ]
-      }
-    failNoOp: true
-    insecureTls: true
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryDeployService: 'Artifactory'
+    targetDeployReleaseRepo: 'demo-class-libs-snapshot'
+    targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
+    javaHomeOption: 'JDKVersion'
+
   
 
 
