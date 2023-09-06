@@ -22,31 +22,16 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-- task: JFrogGenericArtifacts@1
+- task: JFrogBuildPromotion@1
   inputs:
-    command: 'Upload'
-    connection: 'Artifactory'
-    specSource: 'taskConfiguration'
-    fileSpec: |
-      {
-        "files": [
-          {
-            "pattern": "**/target/*.war,
-            "target": "demo-class-libs-snapshot"
-          }
-        ]
-      }
-    failNoOp: true
-  - task: JFrogBuildPromotion@1
-    inputs:
-      artifactoryConnection: 'Artifactory'
-      buildName: '$(Build.DefinitionName)'
-      buildNumber: '$(Build.BuildNumber)'
-      targetRepo: 'demo-class-libs-snapshot'
-      status: 'Released'
-      includeDependencies: false
-      copy: false
-      dryRun: false
+    artifactoryConnection: 'Artifactory'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    targetRepo: 'demo-class-libs-snapshot'
+    status: 'Released'
+    includeDependencies: false
+    copy: false
+    dryRun: false
   
 
 
