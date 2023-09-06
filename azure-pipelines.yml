@@ -25,8 +25,7 @@ steps:
 - task: JFrogBuildPromotion@1
   inputs:
     artifactoryConnection: 'Artifactory'
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+    buildName: '**/target/*'
     targetRepo: 'demo-class-libs-snapshot'
     status: 'Released'
     includeDependencies: false
