@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -29,6 +30,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'install'
+    options: '-Dv= $(Build.BuildId)'
     artifactoryDeployService: 'Artifactory'
     targetDeployReleaseRepo: 'demo-class-libs-release'
     targetDeploySnapshotRepo: 'demo-class-libs-release'
