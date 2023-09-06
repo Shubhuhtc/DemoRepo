@@ -37,6 +37,16 @@ steps:
         ]
       }
     failNoOp: true
+  - task: JFrogBuildPromotion@1
+    inputs:
+      artifactoryConnection: 'Artifactory'
+      buildName: '$(Build.DefinitionName)'
+      buildNumber: '$(Build.BuildNumber)'
+      targetRepo: 'demo-class-libs-snapshot'
+      status: 'Released'
+      includeDependencies: false
+      copy: false
+      dryRun: false
   
 
 
