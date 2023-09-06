@@ -22,15 +22,9 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-- task: JFrogBuildPromotion@1
+- task: CmdLine@2
   inputs:
-    artifactoryConnection: 'Artifactory'
-    buildName: '**/target/*'
-    targetRepo: 'demo-class-libs-snapshot'
-    status: 'Released'
-    includeDependencies: false
-    copy: false
-    dryRun: false
+    script: 'tree {{ Build.SourcesDirectory }}'
   
 
 
