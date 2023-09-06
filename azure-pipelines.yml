@@ -24,7 +24,7 @@ steps:
     sonarQubeRunAnalysis: false
 - task: CmdLine@2
   inputs:
-    script: tree Agent.BuildDirectory.
+    script: tree $(Agent.BuildDirectory)
 
   
 
