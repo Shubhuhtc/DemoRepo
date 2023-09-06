@@ -30,7 +30,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'install'
-    options: '-Dv= $(Build.BuildId)'
+    options: '-Dv=$(Build.BuildId)'
     artifactoryDeployService: 'Artifactory'
     targetDeployReleaseRepo: 'demo-class-libs-release'
     targetDeploySnapshotRepo: 'demo-class-libs-release'
