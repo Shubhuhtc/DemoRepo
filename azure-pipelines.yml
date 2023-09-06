@@ -30,8 +30,8 @@ steps:
     mavenPomFile: 'pom.xml'
     goals: 'install'
     artifactoryDeployService: 'Artifactory'
-    targetDeployReleaseRepo: 'demo-class-libs-snapshot'
-    targetDeploySnapshotRepo: 'demo-class-libs-snapshot'
+    targetDeployReleaseRepo: 'demo-class-libs-release'
+    targetDeploySnapshotRepo: 'demo-class-libs-release'
     javaHomeOption: 'JDKVersion'
 
   
