@@ -22,6 +22,21 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- task: JFrogGenericArtifacts@1
+  inputs:
+    command: 'Upload'
+    connection: 'Artifactory'
+    specSource: 'taskConfiguration'
+    fileSpec: |
+      {
+        "files": [
+          {
+            "pattern": "**/target/*,
+            "target": "demo-class-libs-snapshot"
+          }
+        ]
+      }
+    failNoOp: true
   
 
 
