@@ -4,6 +4,7 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+stages:
 trigger:
 - master
 
@@ -11,7 +12,6 @@ pool:
   name: Azure Pipelines
 
 steps:
-
 
 - task: Maven@4
   inputs:
