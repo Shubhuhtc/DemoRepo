@@ -35,11 +35,6 @@ steps:
     targetDeployReleaseRepo: 'demo-class-libs-release'
     targetDeploySnapshotRepo: 'demo-class-libs-release'
     javaHomeOption: 'JDKVersion'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
 
   
 
