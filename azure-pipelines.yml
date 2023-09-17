@@ -8,33 +8,20 @@ trigger:
 - master
 stages:
 - stage: 'Build'
-jobs:
-- job: 'Build Code'
-  pool:
-  name: Azure Pipelines
-steps:
-- task: Maven@4
-  inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: CmdLine@2
-  inputs:
-    script: tree $(Agent.BuildDirectory)
-- task: JFrogMaven@1
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'install'
-    options: '-Dv=$(Build.BuildId)'
-    artifactoryDeployService: 'Artifactory'
-    targetDeployReleaseRepo: 'demo-class-libs-release'
-    targetDeploySnapshotRepo: 'demo-class-libs-release'
-    javaHomeOption: 'JDKVersion'
+  jobs:
+  - job: 'BuildCode'
+    pool:
+     name: Azure Pipelines
+    steps:
+    - task: JFrogMaven@1
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: 'install'
+        options: '-Dv=$(Build.BuildId)'
+        artifactoryDeployService: 'Artifactory'
+        targetDeployReleaseRepo: 'demo-class-libs-release'
+        targetDeploySnapshotRepo: 'demo-class-libs-release'
+        javaHomeOption: 'JDKVersion'
 
   
 
