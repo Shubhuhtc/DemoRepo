@@ -4,6 +4,10 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+- name: version
+  type: string
+  default: '1.38'
 trigger:
 - master
 stages:
@@ -30,7 +34,7 @@ stages:
     steps:
     - task: CmdLine@2
       inputs:
-        script: 'ansible-playbook --connection=local  /home/admin/deploy.yml --extra-vars "version=1.38"'
+        script: 'ansible-playbook --connection=local  /home/admin/deploy.yml --extra-vars "version=${{ parameters.version }}"'
   
 
 
