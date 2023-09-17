@@ -7,7 +7,7 @@
 parameters:
 - name: version
   type: string
-  default: '1.38'
+  default: '$(Build.BuildId)'
 trigger:
 - master
 stages:
