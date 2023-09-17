@@ -13,6 +13,8 @@ trigger:
 pool:
   name: Azure Pipelines
 
+jobs:
+  - job: Build
 steps:
 
 - task: Maven@4
