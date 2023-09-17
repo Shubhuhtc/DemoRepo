@@ -5,7 +5,7 @@
 
   <groupId>happycoding</groupId>
   <artifactId>hello-world-maven</artifactId>
-  <version>1.39</version>
+  <version>1.${v}</version>
   <packaging>war</packaging>
 
   <properties>
