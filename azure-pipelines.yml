@@ -22,7 +22,15 @@ stages:
         targetDeployReleaseRepo: 'demo-class-libs-release'
         targetDeploySnapshotRepo: 'demo-class-libs-release'
         javaHomeOption: 'JDKVersion'
-
+- stage: 'Deploy'
+  jobs:
+  - job: 'DeployBinary'
+    pool:
+     name: TestAgents
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: 'ansible-playbook --connection=local  deploy.yml --extra-vars "version=1.38"'
   
 
 
