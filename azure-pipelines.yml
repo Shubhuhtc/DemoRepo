@@ -30,7 +30,7 @@ stages:
     steps:
     - task: CmdLine@2
       inputs:
-        script: 'ansible-playbook --connection=local  deploy.yml --extra-vars "version=1.38"'
+        script: 'ansible-playbook --connection=local  /home/admin/deploy.yml --extra-vars "version=1.38"'
   
 
 
